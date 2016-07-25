@@ -36,7 +36,7 @@ public class WorkflowExecutionStarter {
         
         BookingWorkflowClientExternalFactory clientFactory = new BookingWorkflowClientExternalFactoryImpl(swfService, domain); 
         BookingWorkflowClientExternal workflow = clientFactory.getClient();
-        workflow.makeBooking(requestId, customerId, true, true);
+        workflow.makeBooking(requestId, customerId, 5, 10);
         
         System.exit(0);
     }    

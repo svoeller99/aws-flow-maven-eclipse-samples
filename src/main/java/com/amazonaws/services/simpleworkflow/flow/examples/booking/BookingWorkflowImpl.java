@@ -21,14 +21,14 @@ public class BookingWorkflowImpl implements BookingWorkflow {
     private final BookingActivitiesClient client = new BookingActivitiesClientImpl();
 
     @Override
-    public void makeBooking(int requestID, int customerID, boolean reserveAir, boolean reserveCar) {
+    public void makeBooking(int requestID, int customerID, int airlineTicketCount, int carCount) {
         Promise<Void> carReservation = null;
-        if (reserveCar) {
-            carReservation = client.reserveCar(requestID);
+        if (carCount > 0) {
+            carReservation = client.reserveCar(requestID, carCount);
         }
         Promise<Void> airReservation = null;
-        if (reserveAir) {
-            airReservation = client.reserveAirline(requestID);
+        if (airlineTicketCount > 0) {
+            airReservation = client.reserveAirline(requestID, airlineTicketCount);
         }
         // Relies on null Promise parameter considered immediately ready
         client.sendConfirmationActivity(customerID, carReservation, airReservation);

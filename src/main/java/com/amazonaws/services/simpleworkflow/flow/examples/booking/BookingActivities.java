@@ -26,9 +26,9 @@ import com.amazonaws.services.simpleworkflow.flow.common.FlowConstants;
         defaultTaskStartToCloseTimeoutSeconds = 60)
 public interface BookingActivities {
 
-    void reserveCar(int requestId);
+    void reserveCar(int requestId, int count);
 
-    void reserveAirline(int requestId);
+    void reserveAirline(int requestId, int count);
 
     void sendConfirmationActivity(int customerId);
     

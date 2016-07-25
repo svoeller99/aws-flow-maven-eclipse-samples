@@ -17,13 +17,13 @@ package com.amazonaws.services.simpleworkflow.flow.examples.booking;
 public class BookingActivitiesImpl implements BookingActivities {
 
 	@Override
-	public void reserveCar(int requestId) {
-        System.out.printf("Reserving car for Request ID: %d...\n", requestId);
+	public void reserveCar(int requestId, int count) {
+        System.out.printf("Reserving %d car(s) for Request ID: %d...\n", count, requestId);
 	}
 
 	@Override
-	public void reserveAirline(int requestId) {
-        System.out.printf("Reserving airline for Request ID: %d...\n", requestId);
+	public void reserveAirline(int requestId, int count) {
+        System.out.printf("Reserving %d airline tickets for Request ID: %d...\n", count, requestId);
     }
 	
 	@Override

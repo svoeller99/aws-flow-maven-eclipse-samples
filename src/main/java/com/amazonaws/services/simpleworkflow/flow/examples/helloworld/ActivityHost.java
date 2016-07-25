@@ -38,6 +38,8 @@ public class ActivityHost {
         // Create activity implementations
         HelloWorldActivities helloWorldActivitiesImpl = new HelloWorldActivitiesImpl();
         worker.addActivitiesImplementation(helloWorldActivitiesImpl);
+        worker.setRegisterDomain(true);
+        worker.setDomainRetentionPeriodInDays(1);
 
         worker.start();
 
